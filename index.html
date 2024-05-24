@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Button</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+#cuteButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff99cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#cuteButton:hover {
+    background-color: #ff66b3;
+}
+
+#messageContainer {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ff66b3;
+}
+
+#messageContainer button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ff99cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#messageContainer button:hover {
+    background-color: #ff66b3;
+}
+
+.hidden {
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="cuteButton">Click me</button>
+        <div id="messageContainer" class="hidden"></div>
+    </div>
+    <script >
+
+
+const cuteButton = document.getElementById('cuteButton');
+const messageContainer = document.getElementById('messageContainer');
+
+cuteButton.addEventListener('click', () => {
+    cuteButton.style.display = 'none';
+    messageContainer.innerHTML = '<p>You are cute &#10084;</p><button id="anotherButton">Click me!</button>';
+    messageContainer.classList.remove('hidden');
+
+    const anotherButton = document.getElementById('anotherButton');
+    anotherButton.addEventListener('click', () => {
+        messageContainer.innerHTML = '<p>You are <strike>cute</strike> <br>cutest &#10084;&#10084;</p>';
+    });
+});
+
+
+  
+
+    </script>
+</body>
+</html>
